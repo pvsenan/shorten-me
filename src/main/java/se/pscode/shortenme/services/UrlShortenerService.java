@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Service
 public class UrlShortenerService {
-    private UrlDataRepository urlDataRepository;
+    private final UrlDataRepository urlDataRepository;
 
     public UrlShortenerService(UrlDataRepository urlDataRepository) {
         this.urlDataRepository = urlDataRepository;
