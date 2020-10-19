@@ -9,6 +9,7 @@ import se.pscode.shortenme.modal.UrlRequest;
 import se.pscode.shortenme.services.UrlShortenerService;
 
 import javax.validation.Valid;
+import java.net.URI;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -28,7 +29,9 @@ public class UrlController {
     @GetMapping(path = "/urlId/{id}")
     public ResponseEntity<UrlData> getOriginalUrl(@PathVariable Integer id) {
         UrlData urlData = urlShortenerService.getOriginalUrl(id);
-        return ResponseEntity.ok().body(urlData);
+        return ResponseEntity.status(HttpStatus.FOUND)
+                .location(URI.create(urlData.getOriginalUrl()))
+                .build();
     }
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<ErrorModal> handleRunTimeException(RuntimeException runtimeException){
