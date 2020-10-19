@@ -46,7 +46,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"originalUrl\":\"http://www.psco.de\"\r\n}",
+					"raw": "{\r\n    \"originalUrl\":\"https://www.google.se\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
